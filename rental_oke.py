@@ -1,5 +1,5 @@
 # Install necessary libraries if they are not already installed
-# Asenna tarvittavat kirjastot, jos niitä ei ole jo asennettu
+
 try:
     import matplotlib.pyplot as plt
 except ImportError:
@@ -19,15 +19,12 @@ now = datetime.now()
 
 
 # Go back to main menu
-# Palaa päävalikkoon
-
 
 def back():
     input('\nPress ENTER to return to main menu...')
     menu()
 
 # Modify vehicle.txt file
-# Muokkaa vehicle.txt-tiedostoa
 
 
 def modify(tf, mod):
@@ -37,7 +34,6 @@ def modify(tf, mod):
                 rew.write(w)
 
 # Display cars available for rent
-# Näytä autot vuokrattavissa
 
 
 def displayCars(u):
@@ -60,8 +56,6 @@ def displayCars(u):
     print(table)
 
 # Add and delete vehicles
-# Lisää ja poista ajoneuvoja
-
 
 def Add_Vehicle():
     lcpl = input('\nEnter Vehicle ID: ')
@@ -157,8 +151,6 @@ def Delete_Vehicle():
                 continue
 
 # Add rent details to files
-# Lisää tiedostoihin vuokratiedot
-
 
 def rentDetails(path, app):
     plate = app.split(',')
@@ -189,8 +181,6 @@ def receiptID():
                 return code
 
 # Check Odometer reading
-# Tarkista matkamittarin lukema
-
 
 def odometer(way, qq):
     if way == 1:
@@ -220,8 +210,6 @@ def odometer(way, qq):
                     return ww
 
 # Add accessories
-# Lisää lisävarusteita
-
 
 def accessories():
     while True:
@@ -235,8 +223,6 @@ def accessories():
             continue
 
 # Rent a car
-# Vuokrata auton
-
 
 def rentVehicle(id1):
     with open(r'Vehicle.txt', 'r') as f2:
@@ -286,8 +272,6 @@ def rentVehicle(id1):
             return False, []
 
 # Return a car
-# Palauta auton
-
 
 def rentComplete(id2):
     with open(r'rentVehicle.txt', 'r') as f3:
@@ -348,8 +332,6 @@ def rentComplete(id2):
             return False, []
 
 # Data visualization
-# Tietojen visualisointi
-
 
 def Graph1():
     ordinary = 0
@@ -393,7 +375,6 @@ def Graph2():
 
 
 # Remove extra lines
-# Poista ylimääräiset rivit
 
 def extraLinesTerminator():
     with open('Vehicle.txt', 'r') as z:
@@ -404,8 +385,6 @@ def extraLinesTerminator():
         modify(True, content)
 
 # Main menu
-# Päävalikko
-
 
 def menu():
     extraLinesTerminator()
