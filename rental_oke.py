@@ -1,4 +1,4 @@
-# Install necessary libraries if they are not already installed
+# Install librari yg diperlukan apabila belum terinstall
 
 try:
     import matplotlib.pyplot as plt
@@ -18,13 +18,16 @@ import string
 now = datetime.now()
 
 
-# Go back to main menu
+# Kembali ke Menu Utama
+
+
 
 def back():
-    input('\nPress ENTER to return to main menu...')
+    input('\nTekan ENTER untuk kembali ke menu utama...')
     menu()
 
-# Modify vehicle.txt file
+# Mengubah file vehicle.txt
+
 
 
 def modify(tf, mod):
@@ -33,11 +36,11 @@ def modify(tf, mod):
             for w in mod:
                 rew.write(w)
 
-# Display cars available for rent
+# Menampilkan mobil yang tersedia untuk disewakan
 
 
 def displayCars(u):
-    table = PrettyTable(['Registration number', 'Model name',
+    table = PrettyTable(['Nomor Kendaraan', 'Model Kendaraan',
                         'Type (Ordinary/Premium)', 'Free mileage (km)', 'Daily rent (€)'])
     with open(r'Vehicle.txt', 'r') as f1:
         cars1 = f1.readlines()
@@ -55,7 +58,7 @@ def displayCars(u):
                 return
     print(table)
 
-# Add and delete vehicles
+# Menambah dan menghapus kendaraan
 
 def Add_Vehicle():
     lcpl = input('\nEnter Vehicle ID: ')
@@ -150,7 +153,7 @@ def Delete_Vehicle():
                 print("\nInvalid choice.")
                 continue
 
-# Add rent details to files
+# Menambahkan detail rental ke dalam file
 
 def rentDetails(path, app):
     plate = app.split(',')
@@ -163,9 +166,7 @@ def rentDetails(path, app):
             p.write(str(app))
             print('\nCar '+plate[1]+' is returned successfully.')
 
-# Generate Receipt ID and check if it is already taken
-# Luo kuittitunnus ja tarkista, onko se jo varattu
-
+# Membuat receipt ID dan melakukan cek apabila sudah dilakukan
 
 def receiptID():
     while True:
@@ -180,7 +181,7 @@ def receiptID():
             else:
                 return code
 
-# Check Odometer reading
+# Melakukan cek Odometer
 
 def odometer(way, qq):
     if way == 1:
@@ -209,7 +210,7 @@ def odometer(way, qq):
                 else:
                     return ww
 
-# Add accessories
+# Menambahkan accessories
 
 def accessories():
     while True:
@@ -222,7 +223,7 @@ def accessories():
             print("\nInvalid choice.")
             continue
 
-# Rent a car
+# Sewakan kendaraan
 
 def rentVehicle(id1):
     with open(r'Vehicle.txt', 'r') as f2:
@@ -271,7 +272,7 @@ def rentVehicle(id1):
             print('\nVehicle does not exist.')
             return False, []
 
-# Return a car
+# Mengembalikan kendaraan
 
 def rentComplete(id2):
     with open(r'rentVehicle.txt', 'r') as f3:
@@ -331,7 +332,7 @@ def rentComplete(id2):
             print('\nReceipt ID does not exist.')
             return False, []
 
-# Data visualization
+# Data visualisasi
 
 def Graph1():
     ordinary = 0
@@ -374,7 +375,7 @@ def Graph2():
         print(f'{key}: €{value:.2f}')
 
 
-# Remove extra lines
+# Menghilangkan garis tambahan
 
 def extraLinesTerminator():
     with open('Vehicle.txt', 'r') as z:
@@ -384,7 +385,8 @@ def extraLinesTerminator():
                 content.remove(i)
         modify(True, content)
 
-# Main menu
+# Menu utama
+
 
 def menu():
     extraLinesTerminator()
